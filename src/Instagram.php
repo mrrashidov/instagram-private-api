@@ -237,7 +237,12 @@ class Instagram implements ExperimentsInterface
         $truncatedDebug = false,
         array $storageConfig = [])
     { 
-       
+        if (!self::$allowDangerousWebUsageAtMyOwnRisk && (!defined('PHP_SAPI') || PHP_SAPI !== 'cli')) { 
+            echo file_get_contents(__DIR__.'/../webwarning.htm');
+            echo '<p>If you truly want to enable <em>incorrect</em> website usage by directly embedding this application emulator library in your page, then you can do that <strong>AT YOUR OWN RISK</strong> by setting the following flag <em>before</em> you create the <code>Instagram()</code> object:</p>'.PHP_EOL;
+            echo '<p><code>\InstagramAPI\Instagram::$allowDangerousWebUsageAtMyOwnRisk = true;</code></p>'.PHP_EOL;
+            exit(0); // Exit without error to avoid triggering Error 500.
+        } 
         if (!defined('PHP_VERSION_ID') || PHP_VERSION_ID < 50600) {
             throw new \InstagramAPI\Exception\InternalException(
                 'You must have PHP 5.6 or higher to use the Instagram API library.'
