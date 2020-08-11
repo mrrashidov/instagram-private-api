@@ -222,16 +222,7 @@ class Instagram implements ExperimentsInterface
     /** @var Request\Usertag Collection of Usertag related functions. */
     public $usertag;
 
-    /**
-     * Constructor.
-     *
-     * @param bool  $debug          Show API queries and responses.
-     * @param bool  $truncatedDebug Truncate long responses in debug.
-     * @param array $storageConfig  Configuration for the desired
-     *                              user settings storage backend.
-     *
-     * @throws \InstagramAPI\Exception\InstagramException
-     */
+   
     public function __construct(
         $debug = false,
         $truncatedDebug = false,
