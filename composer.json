@@ -1,5 +1,6 @@
 {
     "name": "shoxrux/instagram-private-api",
+    "type": "library",
     "description": "Instagram's private API for PHP",
     "license": [
         "RPL-1.5",
@@ -38,6 +39,7 @@
             "InstagramAPI\\Tests\\": "tests/"
         }
     },
+    "minimum-stability": "dev",
     "require": {
         "php": ">5.6",
         "lazyjsonmapper/lazyjsonmapper": "^1.6.1",
